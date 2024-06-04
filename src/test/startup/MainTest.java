@@ -33,10 +33,10 @@ public class MainTest {
         Main.main(args);
         String output = outContent.toString();
         String expectedItemID = "abc123";
-        String expectedItemName = "BigWheel Oatmeal";
-        String expectedPrice = new Amount(2990).toString();
+        String expectedItemName = "Cornflakes";
+        String expectedPrice = new Amount(2821).toString();
         String expectedVat = "6%";
-        String expectedDescription = "BigWheel Oatmeal 500 g, whole grain oats, high fiber, gluten free";
+        String expectedDescription = "Cornflakes 500 g, choclate oats";
         assertTrue(output.contains(expectedItemID), "Output does not contain item ID.");
         assertTrue(output.contains(expectedItemName), "Output does not contain item name.");
         assertTrue(output.contains(expectedPrice), "Output does not contain item price.");
@@ -50,10 +50,10 @@ public class MainTest {
         Main.main(args);
         String output = outContent.toString();
         String expectedItemID = "def456";
-        String expectedItemName = "YouGoGo Blueberry";
-        String expectedPrice = new Amount(1490).toString();
+        String expectedItemName = "Muffins";
+        String expectedPrice = new Amount(1406).toString();
         String expectedVat = "6%";
-        String expectedDescription = "YouGoGo Blueberry 240 g, low sugar youghurt, blueberry flavour";
+        String expectedDescription = "Muffins 240 g, low sugar , blueberry flavour";
         assertTrue(output.contains(expectedItemID), "Output does not contain item ID.");
         assertTrue(output.contains(expectedItemName), "Output does not contain item name.");
         assertTrue(output.contains(expectedPrice), "Output does not contain item price.");
@@ -66,9 +66,9 @@ public class MainTest {
         String[] args = null;
         Main.main(args);
         String output = outContent.toString();
-        String expectedRunningTotalAfterFirstItem = new Amount(2990).toString();
-        String expectedRunningTotalAfterSecondItem = new Amount(5980).toString();
-        String expectedRunningTotalAfterThirdItem = new Amount(7470).toString();
+        String expectedRunningTotalAfterFirstItem = new Amount(2821).toString();
+        String expectedRunningTotalAfterSecondItem = new Amount(5642).toString();
+        String expectedRunningTotalAfterThirdItem = new Amount(7048).toString();
         assertTrue(output.contains(expectedRunningTotalAfterFirstItem), "Output does not contain running total after first item.");
         assertTrue(output.contains(expectedRunningTotalAfterSecondItem), "Output does not contain running total after second item.");
         assertTrue(output.contains(expectedRunningTotalAfterThirdItem), "Output does not contain running total after third item."); 
@@ -92,7 +92,7 @@ public class MainTest {
         String[] args = null;
         Main.main(args);
         String output = outContent.toString();
-        String expectedOutput = "Total cost (incl VAT): 74:70 SEK";
+        String expectedOutput = "Total cost (incl VAT): 70:48 SEK";
         assertTrue(output.contains(expectedOutput), "Output does not contain total cost.");
     }
     
@@ -103,12 +103,12 @@ public class MainTest {
         String output = outContent.toString();
         String expectedBeginReceipt = "----------------------- BEGIN RECEIPT -----------------------";
         String expectedTimeOfSale = "Time of sale: " + LocalDate.now().toString() + " " + LocalTime.now().withNano(0).toString();
-        String expectedFirstItemLine = "BigWheel Oatmeal       2 x 29:90 SEK    59:80 SEK";
-        String expectedSecondItemLine = "YouGoGo Blueberry       1 x 14:90 SEK    14:90 SEK";
-        String expectedTotal = "Total: 74:70 SEK";
+        String expectedFirstItemLine = "Cornflakes       2 x 28:21 SEK    56:42 SEK";
+        String expectedSecondItemLine = "Muffins       1 x 14:06 SEK    14:06 SEK";
+        String expectedTotal = "Total: 70:48 SEK";
         String expectedVat = "VAT: 4:22 SEK";
         String expectedCash = "Cash: 100:00 SEK";
-        String expectedChange = "Change: 25:30 SEK";
+        String expectedChange = "Change: 29:52 SEK";
         String expectedEndReceipt = "----------------------- END RECEIPT -----------------------";
         assertTrue(output.contains(expectedBeginReceipt), "Output does not contain start of receipt.");
         assertTrue(output.contains(expectedTimeOfSale), "Output does not contain time of sale.");
@@ -126,7 +126,7 @@ public class MainTest {
         String[] args = null;
         Main.main(args);
         String output = outContent.toString();
-        String expectedOutput = "Change to give the customer: 25:30 SEK";
+        String expectedOutput = "Change to give the customer: 29:52 SEK";
         assertTrue(output.contains(expectedOutput), "Output does not contain change to give to customer.");
     }
 }

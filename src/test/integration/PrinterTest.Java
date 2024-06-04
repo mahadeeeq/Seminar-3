@@ -29,8 +29,8 @@ public class PrinterTest {
         
         Amount paidAmount = new Amount(10000);
         sale = new Sale();
-        ItemDTO item = new ItemDTO("BigWheel Oatmeal", "abc123", new Amount(2821), "BigWheel Oatmeal 500 g, "
-                    + "whole grain oats, high fiber, gluten free", 6);
+        ItemDTO item = new ItemDTO("Cornflakes", "abc123", new Amount(2821), "Cornflakes 500 g, "
+                    + "choclate oats", 6);
         sale.registerItem(item);
         payment = new CashPayment(paidAmount, sale);
         receipt = new Receipt(sale, payment);

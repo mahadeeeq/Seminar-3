@@ -38,8 +38,8 @@ public class ControllerTest {
         Controller contr = new Controller(creator, printer);
         contr.startSale();
         String validIdentifier = "abc123";
-        ItemDTO expectedResult = new ItemDTO("BigWheel Oatmeal", "abc123", new Amount(2821), "BigWheel Oatmeal 500 g, "
-                    + "whole grain oats, high fiber, gluten free", 6);
+        ItemDTO expectedResult = new ItemDTO("Cornflakes", "abc123", new Amount(2821), "Cornflakes 500 g, "
+                    + "choclate oats", 6);
         ItemAndRunningTotalDTO result = contr.enterIdentifier(validIdentifier);
         assertEquals(expectedResult, result.getItem(), "enterIdentifier not returning correct item.");
         assertEquals(expectedResult.getPrice().plus(expectedResult.getVat()), result.getRunningTotal(), "enterIdentifier not returning correct running total.");
@@ -49,8 +49,8 @@ public class ControllerTest {
     public void testEndSale() {
         Controller contr = new Controller(creator, printer);
         contr.startSale();
-        ItemDTO item = new ItemDTO("BigWheel Oatmeal", "abc123", new Amount(2821), "BigWheel Oatmeal 500 g, "
-                    + "whole grain oats, high fiber, gluten free", 6);
+        ItemDTO item = new ItemDTO("Cornflakes", "abc123", new Amount(2821), "Cornflakes 500 g, "
+                    + "choclate oats", 6);
         contr.enterIdentifier("abc123");
         contr.enterIdentifier("abc123");
         Amount expectedResult = item.getPrice().plus(item.getVat()).multiply(2);
@@ -62,8 +62,8 @@ public class ControllerTest {
     public void testPay() {
         Controller contr = new Controller(creator, printer);
         contr.startSale();
-        ItemDTO item = new ItemDTO("BigWheel Oatmeal", "abc123", new Amount(2821), "BigWheel Oatmeal 500 g, "
-                    + "whole grain oats, high fiber, gluten free", 6);
+        ItemDTO item = new ItemDTO("Cornflakes", "abc123", new Amount(2821), "Cornflakes 500 g, "
+                    + "choclate oats", 6);
         contr.enterIdentifier("abc123");
         contr.enterIdentifier("abc123");
         Amount totalPrice = item.getPrice().plus(item.getVat()).multiply(2);
